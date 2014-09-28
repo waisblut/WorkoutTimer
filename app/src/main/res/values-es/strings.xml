@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Workout Resting Timer</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="mainfragment">main_fragment</string>
+    <string name="my_time">Tiempo</string>
+    <string name="config">Ajustes</string>
+    <string name="resting_time">Ajuste de Tiempo</string>
+    <string name="vibrate">Vibrar</string>
+    <string name="about">Acerca de</string>
+    <string name="about2">\tEl propósito de esta aplicación es mejorar la productividad al descansar entre ejercicios de gimnasia.\n\n
+
+        \tSólo tienes que configurar el tiempo de descanso deseado y la aplicación le notificará cuando se hace el temporizador.\n\n
+
+        \tSi usted tiene alguna sugerencia o comentario, por favor siéntase libre de enviarme un correo electrónico a\n\nwaisblutmobileapp@gmail.com.</string>
+    <string name="ok">OK</string>
+
+</resources>

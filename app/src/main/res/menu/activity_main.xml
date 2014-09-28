@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.waisblut.workouttimer.ActivityMain" >
+
+    <item
+        android:id="@+id/MainSetting"
+        android:icon="@drawable/ic_settings"
+        android:orderInCategory="10"
+        android:showAsAction="ifRoom"
+        android:title="@string/config">
+        <menu>
+            <item
+                android:id="@+id/action_tempo"
+                android:icon="@drawable/ic_time"
+                android:orderInCategory="10"
+                android:showAsAction="always"
+                android:title="@string/resting_time">
+            </item>
+            <item
+                android:id="@+id/action_vibrate"
+                android:checkable="true"
+                android:checked="true"
+                android:icon="@drawable/ic_vibrate"
+                android:orderInCategory="20"
+                android:showAsAction="always"
+                android:title="@string/vibrate">
+            </item>
+            <item
+                android:id="@+id/action_about"
+                android:icon="@drawable/ic_about"
+                android:orderInCategory="30"
+                android:showAsAction="always"
+                android:title="@string/about">
+            </item>
+        </menu>
+    </item>
+
+</menu>

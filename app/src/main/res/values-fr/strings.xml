@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Workout Resting Timer</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="mainfragment">main_fragment</string>
+    <string name="my_time">Temps</string>
+    <string name="config">Paramètres</string>
+    <string name="resting_time">Temps</string>
+    <string name="vibrate">Vibrer</string>
+    <string name="about">Sur</string>
+    <string name="about2">\tLe but de cette application est d\'améliorer la productivité au repos entre les exercices de gymnastique.\n\n
+
+        \tIl suffit de régler le temps de repos désiré et l\'application avisera lorsque le minuteur est terminé.\n\n
+
+        \tSi vous avez des suggestions ou des commentaires, s\'il vous plaît n\'hésitez pas à m\'écrire à\n\nwaisblutmobileapp@gmail.com.</string>
+    <string name="ok">OK</string>
+
+</resources>

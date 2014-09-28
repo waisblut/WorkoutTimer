@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Workout Resting Timer</string>
+    <string name="action_settings">Settings</string>
+    <string name="mainfragment">main_fragment</string>
+    <string name="my_time">Time</string>
+    <string name="config">Settings</string>
+    <string name="resting_time">Set Resting Time</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="about">About</string>
+    <string name="about2">\tThe purpose of this Application is to enhance productivity when resting between exercises.\n\n
+        \tJust set the desired resting time and the Application will notify when the timer is done.\n\n
+        \tIf you have any suggestion or comment, please feel free to mail me at\n\n<b>waisblutmobileapp@gmail.com</b>.\n\n</string>
+    <string name="ok">OK</string>
+</resources>

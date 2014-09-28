@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Academia Timer</string>
+    <string name="action_settings">Configurações</string>
+    <string name="mainfragment">main_fragment</string>
+    <string name="my_time">Tempo</string>
+    <string name="config">Configurações</string>
+    <string name="resting_time">Ajustar Tempo</string>
+    <string name="vibrate">Vibrar</string>
+    <string name="about">Sobre</string>
+    <string name="about2">\tO objetivo deste Aplicativo é aumentar a produtividade durante o tempo de repouso nos exercícios da academia.\n\n
+
+        \tBasta definir o tempo de repouso desejado e o Aplicativo notificará quando o timer terminar.\n\n
+
+        \tSe você tem alguma sugestão ou comentário, por favor, sinta-se livre para enviar email em\n\nwaisblutmobileapp@gmail.com.</string>
+    <string name="ok">OK</string>
+
+</resources>

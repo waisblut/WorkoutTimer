@@ -1,0 +1,8 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="button_height_large">180dp</dimen>
+    <dimen name="button_height_small">120dp</dimen>
+
+</resources>
