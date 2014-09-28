@@ -79,6 +79,7 @@ public class MyIntentService
                 }
 
                 playSound();
+
                 sendMessage(0l, true);
 
                 Looper.myLooper().quit();
