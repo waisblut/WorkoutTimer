@@ -50,9 +50,9 @@ public class MyIntentService
 
         try
         {
-            Thread.sleep(intent.getLongExtra(Logger.TIME, Logger.INITIALTIME));
+            Thread.sleep(intent.getLongExtra(Logger.TIME, Logger.INITIALTIME) + 1000);
         }
-        catch (Exception e)
+        catch (Exception ignored)
         {
 
         }
@@ -118,7 +118,7 @@ public class MyIntentService
             {
                 long timeLeft = (mTime - System.currentTimeMillis());
 
-                if (timeLeft >= 0)
+                if (timeLeft > 0)
                 {
                     Logger.log('d', "Ticking...." + (timeLeft));
                     sendMessage(timeLeft, false);
