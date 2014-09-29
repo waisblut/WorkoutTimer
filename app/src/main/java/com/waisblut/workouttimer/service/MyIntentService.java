@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.CountDownTimer;
-import android.os.Looper;
 import android.os.Vibrator;
 
 import com.waisblut.workouttimer.Logger;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MyIntentService
@@ -22,6 +23,7 @@ public class MyIntentService
     Intent mBroadcastIntent;
     private long mTime;
     private boolean mVibrate;
+    private Timer timer;
 
     public MyIntentService()
     {
@@ -33,7 +35,7 @@ public class MyIntentService
     {
         Logger.log('i', "Service Started");
 
-        mTime = intent.getLongExtra(Logger.TIME, Logger.INITIALTIME);
+        mTime = intent.getLongExtra(Logger.TIME, Logger.INITIALTIME) + System.currentTimeMillis();
         mVibrate = intent.getBooleanExtra(Logger.VIBRATE, Logger.INITIALVIBRATE);
         Logger.log('d', "Tempo = " + mTime);
         Logger.log('d', "Vibrate = " + mVibrate);
@@ -43,9 +45,20 @@ public class MyIntentService
         mBroadcastIntent.setAction(ACTION_RESP);
         mBroadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
 
-        setCounter();
+        //setCounter();
+        setCounter2();
 
-        Looper.loop();
+        try
+        {
+            Thread.sleep(intent.getLongExtra(Logger.TIME, Logger.INITIALTIME));
+        }
+        catch (Exception e)
+        {
+
+        }
+
+
+        //Looper.loop();
     }
 
     @Override
@@ -54,35 +67,77 @@ public class MyIntentService
         super.onDestroy();
 
         Logger.log('i', "Service Destroyed");
+        timer.cancel();
     }
 
-    private void setCounter()
+    //    private void setCounter()
+    //    {
+    //        new CountDownTimer(mTime, 500)
+    //        {
+    //            @Override
+    //            public void onTick(long millisUntilFinished)
+    //            {
+    //                Logger.log('d', "Ticking...." + (millisUntilFinished / 1000));
+    //                sendMessage(millisUntilFinished, false);
+    //
+    //            }
+    //
+    //            @Override
+    //            public void onFinish()
+    //            {
+    //                Logger.log('d', "CountDown Finished");
+    //
+    //                if (mVibrate)
+    //                {
+    //                    vibrate(500);
+    //                }
+    //
+    //                playSound();
+    //
+    //                sendMessage(0l, true);
+    //
+    //                Looper.myLooper().quit();
+    //            }
+    //
+    //            private void sendMessage(long millisUntilFinished, boolean isFinished)
+    //            {
+    //                mBroadcastIntent.putExtra(CURRENT_TIME, millisUntilFinished);
+    //                mBroadcastIntent.putExtra(IS_FINISHED, isFinished);
+    //                sendBroadcast(mBroadcastIntent);
+    //            }
+    //        }.start();
+    //    }
+
+    private void setCounter2()
     {
-        new CountDownTimer(mTime, 500)
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask()
         {
             @Override
-            public void onTick(long millisUntilFinished)
+            public void run()
             {
-                Logger.log('d', "Ticking...." + (millisUntilFinished / 1000));
-                sendMessage(millisUntilFinished, false);
+                long timeLeft = (mTime - System.currentTimeMillis());
 
-            }
-
-            @Override
-            public void onFinish()
-            {
-                Logger.log('d', "CountDown Finished");
-
-                if (mVibrate)
+                if (timeLeft >= 0)
                 {
-                    vibrate(500);
+                    Logger.log('d', "Ticking...." + (timeLeft));
+                    sendMessage(timeLeft, false);
                 }
+                else
+                {
+                    Logger.log('d', "DONE");
 
-                playSound();
+                    if (mVibrate)
+                    {
+                        vibrate(500);
+                    }
 
-                sendMessage(0l, true);
+                    playSound();
 
-                Looper.myLooper().quit();
+                    sendMessage(timeLeft, true);
+
+                    timer.cancel();
+                }
             }
 
             private void sendMessage(long millisUntilFinished, boolean isFinished)
@@ -91,7 +146,7 @@ public class MyIntentService
                 mBroadcastIntent.putExtra(IS_FINISHED, isFinished);
                 sendBroadcast(mBroadcastIntent);
             }
-        }.start();
+        }, 0, 500);
     }
 
     private void vibrate(int i)

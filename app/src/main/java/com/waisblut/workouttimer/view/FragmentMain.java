@@ -86,7 +86,7 @@ public class FragmentMain
     {
         if (isMyServiceRunning(MyIntentService.class))
         {
-            Logger.log('e', "SERVICE IS RUNNING");
+            Logger.log('d', "SERVICE IS RUNNING");
             setUpPlayState();
         }
         else
